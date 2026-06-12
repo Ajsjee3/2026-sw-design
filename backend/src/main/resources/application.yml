@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: easytrade-backend
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/easytrade?serverTimezone=Asia/Seoul&characterEncoding=UTF-8}
+    username: ${DB_USERNAME:easytrade}
+    password: ${DB_PASSWORD:easytrade}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+server:
+  port: ${PORT:${SERVER_PORT:8080}}
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-this-secret-key-for-local-development-only}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:120}
+  kis:
+    enabled: ${KIS_ENABLED:false}
+    base-url: ${KIS_BASE_URL:https://openapi.koreainvestment.com:9443}
+    app-key: ${KIS_APP_KEY:}
+    app-secret: ${KIS_APP_SECRET:}
